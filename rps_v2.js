@@ -1,6 +1,10 @@
 var computer_score = 0;
 var player_score = 0;
 var round = 0;
+const rockwin = document.createElement('rockwin');
+const rocklose = document.createElement('rocklose');
+const body = document.querySelector('body');
+rocklose.textContent = "You lose!";
 
 var r_p_s = ["rock", "paper", "scissors"];
 function computerPlay(array){
@@ -38,7 +42,7 @@ function rockPaperScissors(playerSelection, computerSelection){
 playerSelection = playerSelection.toLowerCase();
 if (playerSelection == "rock" &&  computerSelection== "paper") {
   computer_score += 1;
-  alert ("You lose! Paper beats rock." + " Computer: " + computer_score + " Player: " + player_score );
+  body.appendChild(rocklose);
   return game();
 }
 else if (playerSelection == "rock" && computerSelection == "scissors") {

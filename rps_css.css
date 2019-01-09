@@ -1,3 +1,8 @@
+@font-face {
+    font-family: pokemon_solid;
+    src:url(pokemon_solid.ttf);
+}
+
 body {
 background-image: url('https://st2.depositphotos.com/3213441/12022/v/450/depositphotos_120226446-stock-illustration-pokemon-go-pokeball-seamless-texture.jpg');
 text-align: center;
@@ -22,8 +27,7 @@ position: relative;
 }
 
 h1 {
-  background-color: blue;
+  font-family: pokemon_solid;
   color: yellow;
-  margin-left: 250px;
-  margin-right: 250px;
+  text-shadow: -3px 3px blue, 3px 3px blue, 3px 3px blue, 3px -3px blue; 
 }
