@@ -15,7 +15,18 @@ let r_p_s = ["rock", "paper", "scissors"];
 function computerPlay(array){
     return array[Math.floor(Math.random()*array.length)];}
 
-
+    function unfade(element) {
+        var op = 0.1;  // initial opacity
+        element.style.display = 'block';
+        var timer = setInterval(function () {
+            if (op >= 1){
+                clearInterval(timer);
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op += op * 0.1;
+        }, 10);
+    }
 
 function game(){
 round += 1;
@@ -27,7 +38,7 @@ round += 1;
         result.textContent = ("Game Over. Computer wins!" + " Computer: " + computer_score + " Player: " + player_score + "\nPick a Pokemon to play again!" );
 
         final.appendChild(result);
-
+        unfade(result);
         round = 0;
         computer_score = 0;
         player_score = 0;
@@ -44,13 +55,14 @@ round += 1;
     player_score = 0;
 
     final.appendChild(result);
+    unfade(result);
   }
 
     else {
       result.textContent = ("Game Over. It's a tie!" + " Computer: " + computer_score + " Player: " + player_score + "\nPick a Pokemon to play again!");
 
       final.appendChild(result);
-
+      unfade(result);
       round = 0;
       computer_score = 0;
       player_score = 0;
@@ -77,7 +89,7 @@ if (playerSelection == "rock" &&  computerSelection== "paper") {
   win.style.display = "none";
   lose.style.display = "initial";
   body.appendChild(lose);
-
+  unfade(lose);
       return game();
     }
 
@@ -89,6 +101,7 @@ result.style.display = "none";
 lose.style.display = "none";
 win.style.display = "initial";
 body.appendChild(win);
+unfade(win);
 
 
     return game();
@@ -100,7 +113,7 @@ result.style.display = "none";
 lose.style.display = "none";
 draw.style.display = "initial";
 body.appendChild(draw);
-
+      unfade(draw);
     return game();
   }
 
@@ -112,7 +125,7 @@ result.style.display = "none";
 lose.style.display = "none";
 win.style.display = "initial";
 body.appendChild(win);
-
+    unfade(win);
     return game();
   }
 
@@ -123,6 +136,7 @@ else if (playerSelection == "paper" && computerSelection == "paper") {
   lose.style.display = "none";
   draw.style.display = "initial";
   body.appendChild(draw);
+      unfade(draw);
 return game();
 }
 else if (playerSelection == "paper" && computerSelection == "scissors") {
@@ -132,7 +146,8 @@ else if (playerSelection == "paper" && computerSelection == "scissors") {
   lose.style.display = "initial";
   result.style.display = "none";
   body.appendChild(lose);
-  return game();
+    unfade(lose);
+    return game();
 }
 else if (playerSelection == "scissors" && computerSelection == "rock") {
   computer_score += 1;
@@ -141,7 +156,8 @@ else if (playerSelection == "scissors" && computerSelection == "rock") {
   win.style.display = "none";
   lose.style.display = "initial";
   body.appendChild(lose);
-  return game();
+    unfade(lose);
+    return game();
 }
 else if (playerSelection == "scissors" && computerSelection == "paper") {
   player_score += 1;
@@ -150,7 +166,7 @@ else if (playerSelection == "scissors" && computerSelection == "paper") {
   lose.style.display = "none";
   win.style.display = "initial";
   body.appendChild(win);
-
+    unfade(win);
 return game();
 }
 else if (playerSelection == "scissors" && computerSelection == "scissors") {
@@ -159,6 +175,7 @@ else if (playerSelection == "scissors" && computerSelection == "scissors") {
   lose.style.display = "none";
   draw.style.display = "initial";
   body.appendChild(draw);
+    unfade(draw);
 return game();
 }
 

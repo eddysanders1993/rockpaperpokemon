@@ -1,6 +1,9 @@
 var computer_score = 0;
 var player_score = 0;
 var round = 0;
+const rockwin = document.createElement('rockwin');
+const rocklose = document.createElement('rocklose');
+
 
 var r_p_s = ["rock", "paper", "scissors"];
 function computerPlay(array){
